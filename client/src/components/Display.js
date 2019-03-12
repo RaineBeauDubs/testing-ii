@@ -11,7 +11,7 @@ class Display extends React.Component {
   }
 
   incrementStrikes = () => {
-    if (this.state.strikes < 3) {
+    if (this.state.strikes < 2) {
       return (
         this.setState(prevState => ({
           strikes: ++prevState.strikes
@@ -28,7 +28,7 @@ class Display extends React.Component {
   }
 
   incrementBalls = () => {
-    if (this.state.balls < 4) {
+    if (this.state.balls < 3) {
       return (
         this.setState(prevState => ({
           balls: ++prevState.balls
@@ -42,6 +42,23 @@ class Display extends React.Component {
         }))
       )
     }
+  }
+
+  incrementFoul = () => {
+    if (this.state.strikes < 2) {
+      return (
+        this.setState(prevState => ({
+          strikes: ++prevState.strikes
+        }))
+      )
+    }
+  }
+
+  recordHit = () => {
+    this.setState(() => ({
+      strikes: 0,
+      balls: 0
+    }))
   }
 
   render() {
@@ -60,7 +77,9 @@ class Display extends React.Component {
         </div>
         <Dashboard 
           incrementStrikes={this.incrementStrikes} 
-          incrementBalls={this.incrementBalls}
+          incrementBalls={this.incrementBalls} 
+          incrementFoul={this.incrementFoul}
+          recordHit={this.recordHit}
         />
       </div>
     )
