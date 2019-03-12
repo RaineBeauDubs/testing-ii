@@ -1,18 +1,16 @@
 import React from 'react';
 
-class Dashboard extends React.Component {
-  render() {
+const Dashboard = props => {
     return (
       <div>
         <div>
-          <button>STRIKE</button>
-          <button>BALL</button>
+          <button onClick={props.incrementStrikes}>STRIKE</button>
+          <button onClick={props.incrementBalls}>BALL</button>
           <button>FOUL</button>
           <button>HIT</button>
         </div>
       </div>
     )
-  }
 }
 
 export default Dashboard;
